@@ -1,0 +1,91 @@
+<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 container">
+  <div class="mdc-card">
+    <section class="mdc-card__primary">
+      <h1 class="mdc-card__title mdc-card__title--large">Criar Cliente</h1>
+    </section>
+    <section class="mdc-card__supporting-text">
+      <form [formGroup]="criarForm">
+        <div class="col-md-12">
+          <div class="row">
+            <mat-form-field class="w-25">
+              <input
+                formControlName="nome"
+                matInput
+                placeholder="Nome"
+              />
+              <mat-error>Nome é Obrigatório</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-auto ml-3">
+              <input
+                formControlName="cpf"
+                matInput
+                placeholder="CPF"
+                mask='000.000.000-00'
+              />
+              <mat-error>Coloque um CPF Válido (apenas números)</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field class="w-auto">
+              <mat-select
+                formControlName="sexo"
+                matNativeControl
+                placeholder="Sexo"
+              >
+              <mat-option value="M">Masculino</mat-option>
+              <mat-option value="F">Feminino</mat-option>
+              </mat-select>
+              <mat-error>Sexo é obrigatório</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-25 ml-3">
+              <input
+                formControlName="email"
+                matInput
+                placeholder="E-mail"
+              />
+              <mat-error>Coloque um endereço de email válido</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row">
+              <mat-form-field class="w-25">
+                  <input
+                    formControlName="emailConfirmacao"
+                    matInput
+                    placeholder="Confirme o email"
+                  />
+                  <mat-error>Coloque um endereço de email válido</mat-error>
+                </mat-form-field>
+
+              <mat-form-field class="w-auto ml-3">
+                  <input matInput [matDatepicker]="picker" formControlName="data_nasc" placeholder="Data de Nascimento">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                <mat-error>Data de nascimento é obrigatório</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field class="w-25 mb-3">
+                    <input
+                      formControlName="phone"
+                      matInput
+                      placeholder="Telefone"
+                      mask='(00)00000-0000'
+                    />
+                    <mat-error>Coloque um endereço de email válido</mat-error>
+                  </mat-form-field>
+            </div>
+        </div>
+      </form>
+
+    <div class="row ml-1">
+      <button
+      mat-raised-button color="primary"
+      [disabled]="!criarForm.valid"
+      (click)="add(criarForm.value)"
+      >Adicionar</button>
+    </div>
+    </section>
+  </div>
+</div>

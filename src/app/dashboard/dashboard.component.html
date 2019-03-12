@@ -1,0 +1,43 @@
+<div class="mdc-card">
+    <section class="mdc-card__primary">
+      <h1 class="mdc-card__title mdc-card__title--large">Clientes</h1>
+    </section>
+    <div class="template-demo">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-left">Id</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Sexo</th>
+            <th>Data de Nascimento</th>
+            <th>Email</th>
+            <th>Telefone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes">
+            <td class="text-left">{{cliente.cli_id}}</td>
+            <td>{{cliente.cli_nome}}</td>
+            <td>{{cliente.cli_cpf}}</td>
+            <td>{{cliente.cli_sexo}}</td>
+            <td>{{cliente.cli_dat_nasc | date:'dd/MM/yyyy'}}</td>
+            <td>{{cliente.cli_email}}</td>
+            <td>{{cliente.cli_phone}}</td>
+            <td class="text-center">
+              <a class="btn" href="#">
+                  <i class="material-icons">
+                      edit
+                   </i>
+              </a>
+              <a class="btn" href="#" (click)="delete(cliente)">
+                  <i class="material-icons">
+                      delete
+                  </i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
